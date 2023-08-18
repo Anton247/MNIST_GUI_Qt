@@ -6,6 +6,9 @@ NeuralNetwork::NeuralNetwork(int inputNum, int hiddenNum, int outputNum)
   m_hiddenSize = hiddenNum;
   m_outputSize = outputNum;
 
+  m_hiddenNeurons.resize(hiddenNum);
+  m_outputNeurons.resize(outputNum);
+
   //заполнение весов между входным и скрытым слоями
   m_inputHiddenWeight.resize(m_inputSize);
   for(int i=0; i<m_inputSize; ++i){
@@ -37,4 +40,25 @@ NeuralNetwork::NeuralNetwork(int inputNum, int hiddenNum, int outputNum)
     qDebug() << m_outputBiases[i];
   }
 
+}
+
+void NeuralNetwork::feedForward(const QVector<double> &input)
+{
+  //расчёт значений скрытых нейронов
+  for(int i = 0; i<m_hiddenSize; ++i){
+    double activation = m_hiddenBiases[i];
+    for(int j=0; j<m_inputSize; ++j){
+      activation += input[j] * m_inputHiddenWeight[j][i];
+    }
+    m_hiddenNeurons[i] = ReLU(activation);
+  }
+
+  //расчёт значений выходных нейронов
+  for(int i = 0; i<m_outputSize; ++i){
+    double activation = m_outputBiases[i];
+    for(int j=0; j<m_hiddenSize; ++j){
+      activation += input[j] * m_hiddenOutputWeight[j][i];
+    }
+    m_outputNeurons[i] = ReLU(activation);
+  }
 }
