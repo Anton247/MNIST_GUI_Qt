@@ -30,6 +30,8 @@ class NeuralNetwork : public QObject
 
     QRandomGenerator m_randomGenerator;
 
+    const double m_weight = 0.005;
+
 };
 
 #endif // NEURALNETWORK_H
