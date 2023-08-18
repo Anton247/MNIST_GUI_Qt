@@ -42,6 +42,14 @@ NeuralNetwork::NeuralNetwork(int inputNum, int hiddenNum, int outputNum)
 
 }
 
+double NeuralNetwork::ReLU(double x)
+{
+  if(x > 0)
+    return x;
+  else
+    return 0;
+}
+
 void NeuralNetwork::feedForward(const QVector<double> &input)
 {
   //расчёт значений скрытых нейронов

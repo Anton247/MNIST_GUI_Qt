@@ -32,6 +32,8 @@ class NeuralNetwork : public QObject
 
     const double m_weight = 0.005;
 
+    void feedForward(const QVector<double>& input); //фнукиця прямого распространения
+
 };
 
 #endif // NEURALNETWORK_H
