@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    neuralnetwork.cpp
+    neuralnetwork.cpp \
+    paintwidget.cpp
 
 HEADERS += \
     mainwindow.h \
-    neuralnetwork.h
+    neuralnetwork.h \
+    paintwidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -47,6 +47,15 @@ MainWindow::MainWindow(QWidget *parent)
   m_groupBox2->setLayout(m_HlGroup2);
   m_mainGridLayout->addWidget(m_groupBox2, 1, 0);
 
+  // 3-я группа виджетов
+  m_paintWidget = new PaintWidget();
+  m_VlGroup3 = new QVBoxLayout();
+  m_clearButton = new QPushButton("Очистить");
+  m_VlGroup3->addWidget(m_paintWidget);
+  m_VlGroup3->addWidget(m_clearButton);
+  m_groupBox3 = new QGroupBox();
+  m_groupBox3->setLayout(m_VlGroup3);
+  m_mainGridLayout->addWidget(m_groupBox3, 2, 0);
 
 }
 

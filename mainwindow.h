@@ -3,12 +3,14 @@
 
 #include <QMainWindow>
 #include "neuralnetwork.h"
+#include "paintwidget.h"
 #include <QLabel>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QGroupBox>
-#include <QProgressBar>>
+#include <QProgressBar>
+#include <QPushButton>
 
 class MainWindow : public QMainWindow
 {
@@ -28,10 +30,13 @@ class MainWindow : public QMainWindow
     QProgressBar *m_progressBars[m_outputNum];
 
     //Элементы интерфейса
-    QWidget *m_centralWidget; //глаынй виджет окна
-    QLabel *m_resultLabel; //решение нейросети
-    QGroupBox *m_groupBox1; //первая группа виджетов (верхняя)
-    QGroupBox *m_groupBox2; //вторая группа виджетов (центральная)
+    QWidget *m_centralWidget; // главнй виджет окна
+    QLabel *m_resultLabel; // решение нейросети
+    QGroupBox *m_groupBox1; // первая группа виджетов (верхняя)
+    QGroupBox *m_groupBox2; // вторая группа виджетов (центральная)
+    QGroupBox *m_groupBox3; // третья группа виджетов (нижняя)
+    PaintWidget *m_paintWidget; // виджет для рисования
+    QPushButton *m_clearButton; // кнопка очистить
 
     //cлой для размещения виджетов
     QGridLayout *m_mainGridLayout;
@@ -39,6 +44,7 @@ class MainWindow : public QMainWindow
     QVBoxLayout *m_VlGroup1;
     QHBoxLayout *m_HlGroup2;
     QVBoxLayout *m_VlGroup2;
+    QVBoxLayout *m_VlGroup3;
 
 
 
